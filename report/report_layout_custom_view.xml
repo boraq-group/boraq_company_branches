@@ -539,15 +539,26 @@
     </template>
 
     <template id="external_layout_custom">
-        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="not o" t-set="o" t-value="doc"/>
+        <t t-set="company_branch_id" t-value="o.branch_id or o.company_id "/>
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
         <t t-if="company_branch_id.external_report_layout_id" t-call="{{company_branch_id.external_report_layout_id.key}}">
             <t t-raw="0"/>
         </t>
         <t t-else="else" t-call="boraq_company_branches.external_layout_standard_custom">
             <t t-raw="0"/>
         </t>
-
     </template>
 
 
