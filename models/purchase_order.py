@@ -7,7 +7,6 @@ class PurchaseOrder(models.Model):
     branch_id = fields.Many2one('company.branches', string='Branch')
     
     
-    @api.multi
     def action_view_invoice(self):
         result = super(PurchaseOrder,self).action_view_invoice()
         result['context'].update({'default_branch_id':self.branch_id.id}) 

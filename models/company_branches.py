@@ -32,14 +32,12 @@ class CompanyBranches(models.Model):
         currency_id = self.env['res.users'].browse(self._uid).company_id.currency_id
         return currency_id or self._get_euro()
     
-    @api.multi
     def change_report_template(self):
         self.ensure_one()
         template = self.env.ref('boraq_company_branches.view_branch_document_template_form')
         return {
             'name': _('Choose Your Document Layout'),
             'type': 'ir.actions.act_window',
-            'view_type': 'form',
             'view_mode': 'form',
             'res_id': self.id,
             'res_model': 'company.branches',
@@ -55,12 +53,10 @@ class CompanyBranches(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'ir.ui.view',
-            'view_type': 'form',
             'view_mode': 'form',
             'res_id': template_id.id,
         }
 
-    @api.multi
     def edit_external_header(self):
         if not self.external_report_layout_id:
             return False

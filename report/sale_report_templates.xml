@@ -43,9 +43,9 @@
                     <strong>Your Reference:</strong>
                     <p class="m-0" t-field="doc.client_order_ref"/>
                 </div>
-                <div t-if="doc.confirmation_date and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">
+                <div t-if="doc.date_order and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">
                     <strong>Date Ordered:</strong>
-                    <p class="m-0" t-field="doc.confirmation_date"/>
+                    <p class="m-0" t-field="doc.date_order"/>
                 </div>
                 <div t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto mw-100 mb-2">
                     <strong>Quotation Date:</strong>
@@ -59,7 +59,7 @@
                     <strong>Payment Terms:</strong>
                     <p class="m-0" t-field="doc.payment_term_id"/>
                 </div>
-                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2"> 
+                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2" name="expiration_date">
                     <strong>Expiration Date:</strong>
                     <p class="m-0" t-field="doc.validity_date"/>
                 </div>
@@ -71,18 +71,14 @@
             <table class="table table-sm o_main_table">
                 <thead>
                     <tr>
-                        <!-- TODO: remove in master -->
-                        <t t-set="colspan" t-value="5"/>
-                        <th class="text-left">Description</th>
-                        <th class="text-right">Quantity</th>
-                        <th class="text-right">Unit Price</th>
-                        <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
-                            <span>Disc.(%)</span>
-                            <!-- TODO: remove in master -->
-                            <t t-set="colspan" t-value="colspan+1"/>
+                       <th name="th_description" class="text-left">Description</th>
+                        <th name="th_quantity" class="text-right">Quantity</th>
+                        <th name="th_priceunit" class="text-right">Unit Price</th>
+                        <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+                            <span>Disc.%</span>
                         </th>
-                        <th class="text-right">Taxes</th>
-                        <th class="text-right">
+                        <th name="th_taxes" class="text-right">Taxes</th>
+                        <th name="th_subtotal" class="text-right">
                             <t groups="account.group_show_line_subtotals_tax_excluded">Amount</t>
                             <t groups="account.group_show_line_subtotals_tax_included">Total Price</t>
                         </th>
@@ -107,7 +103,7 @@
                                 <td class="text-right">
                                     <span t-field="line.price_unit"/>
                                 </td>
-                                <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
+                                <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
                                     <span t-field="line.discount"/>
                                 </td>
                                 <td class="text-right">
