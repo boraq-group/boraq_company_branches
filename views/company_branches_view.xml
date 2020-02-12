@@ -19,7 +19,6 @@
                                 <group>
                                     <group>
                                         <label for="street" string="Address"/>
-                                        <field name="company_id"/>
                                         <div class="o_address_format">
                                             <field name="street" placeholder="Street..." class="o_address_street"/>
                                             <field name="street2" placeholder="Street 2..." class="o_address_street"/>
@@ -31,8 +30,8 @@
                                         <div>
                                             <button name="change_report_template" string="Change Document Template" type="object" class="oe_link" icon="fa-arrow-right"/>
                                             <button name="edit_external_header" string="Edit Layout" type="object" class="oe_link" groups="base.group_no_one"/>
-                                            <!--                                        <button name="%(boraq_company_branches.action_report_externalpreview_custom)d" string="Preview Document" type="action" class="oe_link" groups="base.group_no_one"/>-->
                                         </div>
+                                        <field name="company_id"/>
                                     </group>
                                     <group>
                                         <field name="website" widget="url" placeholder="e.g. https://www.odoo.com"/>
@@ -57,6 +56,7 @@
             <field name="arch" type="xml">
                 <tree string="Companies Branches">
                     <field name="name"/>
+                    <field name="company_id"/>
                     <field name="website"/>
                     <field name="email"/>
                 </tree>
@@ -88,24 +88,19 @@
                 <form class="o_company_document_layout">
                     <group>
                         <label for="external_report_layout_id" string="Template" colspan="2"/>
-                        <field name="external_report_layout_id" colspan="2" nolabel="1"
-                               class="report_layout_container"
-                               widget="report_layout" options="{
+                        <field name="external_report_layout_id" colspan="2" nolabel="1" class="report_layout_container" widget="report_layout" options="{
                                     'field_image': 'preview_image',
                                     'field_binary': 'preview_pdf',
                                      }"/>
                     </group>
                     <group>
                         <field name="logo" widget="image"/>
-                        <field name="report_header" widget="char"
-                               placeholder="e.g. Global Business Solutions"/>
-                        <field name="report_footer" string="Footer"
-                               placeholder="e.g. Opening hours, bank accounts (one per line)"/>
+                        <field name="report_header" widget="char" placeholder="e.g. Global Business Solutions"/>
+                        <field name="report_footer" string="Footer" placeholder="e.g. Opening hours, bank accounts (one per line)"/>
                         <field name="paperformat_id" widget="selection"/>
                     </group>
                     <footer>
-                        <button special="save" string="Save"
-                                class="btn btn-primary" type="object"/>
+                        <button special="save" string="Save" class="btn btn-primary" type="object"/>
                         <button special="cancel" string="Cancel"/>
                     </footer>
                 </form>

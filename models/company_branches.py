@@ -88,19 +88,3 @@ class CompanyBranches(models.Model):
     is_from_branch = fields.Boolean("From Branch",default=True)
 
     company_id = fields.Many2one("res.company","Company")
-
-    
-# class View(models.Model):
-#     _inherit = 'ir.ui.view'
-#     
-#     is_branch_view = fields.Boolean("From Branch")
-# 
-#     
-#     @api.model
-#     def _search(self, args, offset=0, limit=None, order=None, count=False, access_rights_uid=None):
-#         context = dict(self._context or {})
-#         
-#         if context.get("ctx_from_branch",False):
-#              args = [('is_branch_view','=',True)] + args
-#         return super(View,self)._search(args, offset, limit, order, count, access_rights_uid)
-#     
