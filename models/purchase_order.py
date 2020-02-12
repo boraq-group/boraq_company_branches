@@ -4,7 +4,7 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
     _description = 'Purchase order'
 
-    branch_id = fields.Many2one('company.branches', string='Branch')
+    branch_id = fields.Many2one('company.branches', string='Branch', domain="[('company_id','=',company_id)]")
     
     
     @api.multi
