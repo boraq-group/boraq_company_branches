@@ -31,7 +31,6 @@
                                     	<div>
                                         <button name="change_report_template" string="Change Document Template" type="object" class="oe_link" icon="fa-arrow-right"/>
                                         <button name="edit_external_header" string="Edit Layout" type="object" class="oe_link" groups="base.group_no_one"/>
-                                        <button name="%(boraq_company_branches.action_report_externalpreview_custom)d" string="Preview Document" type="action" class="oe_link" groups="base.group_no_one"/>
                                      </div>
                                 </group>
                                 <group>

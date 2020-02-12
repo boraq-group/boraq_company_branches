@@ -2,34 +2,32 @@
 <odoo>
 
     <template id="external_layout_standard_custom">
+        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="docs.branch_id.is_from_branch == True">
             <div class="header">
                 <div class="row">
                     <div class="col-3 mb4">
-                        <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" style="max-height: 45px;" alt="Logo"/>
+                        <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" style="max-height: 45px;" alt="Logo"/>
                     </div>
                     <div class="col-9 text-right" style="margin-top:22px;"/>
                 </div>
-                <div t-if="docs.branch_id.logo" class="row zero_min_height">
+                <div t-if="company_branch_id.logo" class="row zero_min_height">
                     <div class="col-12">
                         <div style="border-bottom: 1px solid black;"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6" name="branch_address">
-                        <!-- <div t-field="docs.branch_id"
-                            t-options='{"widget": "contact", "fields":["address", "name","street","street2","city","state_id","zip","country_id"], "no_marker": true}'
-                        /> -->
-                        <div t-field="docs.branch_id.name"></div>
-                        <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.name"></div>
+                        <div t-field="company_branch_id.street" class="list-inline-item"></div>
                         <br/>
-                        <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                        <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                         <br></br>
-                        <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                        <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                        <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                         <br></br>
-                        <div t-field="docs.branch_id.country_id.name"></div>
+                        <div t-field="company_branch_id.country_id.name"></div>
                     </div>
                 </div>
             </div>
@@ -42,24 +40,21 @@
             <div class="footer o_standard_footer">
                 <div class="text-center" style="border-top: 1px solid black;">
                     <ul class="list-inline mb4">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">Phone:
-                            <span t-field="docs.branch_id.phone"/>
+                        <li t-if="company_branch_id.phone" class="list-inline-item">Phone:
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">Email:
-                            <span t-field="docs.branch_id.email"/>
+                        <li t-if="company_branch_id.email" class="list-inline-item">Email:
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">Web:
-                            <span t-field="docs.branch_id.website"/>
+                        <li t-if="company_branch_id.website" class="list-inline-item">Web:
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item"><t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
-
-                    <!-- <div name="financial_infos">
-                        <span t-field="docs.company_id.report_footer"/>
-                    </div>
-     -->
                     <div t-if="report_type == 'pdf'" class="text-muted">
                         Page:
                         <span class="page"/>
@@ -74,30 +69,27 @@
             <div class="header">
                 <div class="row">
                     <div class="col-3 mb4">
-                        <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" style="max-height: 45px;" alt="Logo"/>
+                        <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" style="max-height: 45px;" alt="Logo"/>
                     </div>
                     <div class="col-9 text-right" style="margin-top:22px;" t-field="docs.company_id.report_header" name="moto"/>
                 </div>
-                <div t-if="docs.branch_id.logo" class="row zero_min_height">
+                <div t-if="company_branch_id.logo" class="row zero_min_height">
                     <div class="col-12">
                         <div style="border-bottom: 1px solid black;"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6" name="branch_address">
-                        <!-- <div t-field="docs.branch_id"
-                            t-options='{"widget": "contact", "fields":["address", "name","street","street2","city","state_id","zip","country_id"], "no_marker": true}'
-                        /> -->
-                        <div t-field="docs.branch_id.name"></div>
-                        <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.name"></div>
+                        <div t-field="company_branch_id.street" class="list-inline-item"></div>
                         <br/>
-                        <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                        <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                         <br></br>
-                        <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                        <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                        <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                        <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                         <br></br>
-                        <div t-field="docs.branch_id.country_id.name"></div>
+                        <div t-field="company_branch_id.country_id.name"></div>
                     </div>
                 </div>
             </div>
@@ -110,17 +102,19 @@
             <div class="footer o_standard_footer">
                 <div class="text-center" style="border-top: 1px solid black;">
                     <ul class="list-inline mb4">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">Phone:
-                            <span t-field="docs.branch_id.phone"/>
+                        <li t-if="company_branch_id.phone" class="list-inline-item">Phone:
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">Email:
-                            <span t-field="docs.branch_id.email"/>
+                        <li t-if="company_branch_id.email" class="list-inline-item">Email:
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">Web:
-                            <span t-field="docs.branch_id.website"/>
+                        <li t-if="company_branch_id.website" class="list-inline-item">Web:
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item"><t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
 
@@ -140,29 +134,28 @@
     </template>
 
     <template id="external_layout_background_custom">
+        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="docs.branch_id.is_from_branch == True">
             <div class="header">
                 <div class="o_background_header">
                     <div class="float-right">
                         <h3 class="mt0 text-right"/>
                     </div>
-                    <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" class="float-left" alt="Logo"/>
+                    <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" class="float-left" alt="Logo"/>
                     <div class="float-left company_address">
                         <div>
-                            <strong t-field="docs.branch_id.name"/>
+                            <strong t-field="company_branch_id.name"/>
                             <br></br>
-                            <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.street" class="list-inline-item"></div>
                             <br/>
-                            <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                            <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                             <br></br>
-                            <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                            <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                            <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                             <br></br>
-                            <div t-field="docs.branch_id.country_id.name"></div>
+                            <div t-field="company_branch_id.country_id.name"></div>
                         </div>
-                        <!--  <span t-field="docs.branch_id"
-                             t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/> -->
                     </div>
                     <div class="clearfix mb8"/>
                 </div>
@@ -176,22 +169,23 @@
             <div class="footer o_background_footer">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">
+                        <li t-if="company_branch_id.phone" class="list-inline-item">
                             <i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/>
-                            <span t-field="docs.branch_id.phone"/>
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">
+                        <li t-if="company_branch_id.email" class="list-inline-item">
                             <i class="fa fa-at" role="img" aria-label="Email" title="Email"/>
-                            <span t-field="docs.branch_id.email"/>
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">
+                        <li t-if="company_branch_id.website" class="list-inline-item">
                             <i class="fa fa-globe" role="img" aria-label="Website" title="Website"/>
-                            <span t-field="docs.branch_id.website"/>
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item">
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
                             <i class="fa fa-building-o" role="img" aria-label="Fiscal number"/>
-                            <t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
                     <!--                 <div t-field="docs.company_id.report_footer"/>
@@ -211,23 +205,21 @@
                     <div class="float-right">
                         <h3 class="mt0 text-right" t-field="docs.company_id.report_header"/>
                     </div>
-                    <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" class="float-left" alt="Logo"/>
+                    <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" class="float-left" alt="Logo"/>
                     <div class="float-left company_address">
                         <div>
-                            <strong t-field="docs.branch_id.name"/>
+                            <strong t-field="company_branch_id.name"/>
                             <br></br>
-                            <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.street" class="list-inline-item"></div>
                             <br/>
-                            <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                            <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                             <br></br>
-                            <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                            <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                            <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                            <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                             <br></br>
-                            <div t-field="docs.branch_id.country_id.name"></div>
+                            <div t-field="company_branch_id.country_id.name"></div>
                         </div>
-                        <!--  <span t-field="docs.branch_id"
-                             t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/> -->
                     </div>
                     <div class="clearfix mb8"/>
                 </div>
@@ -241,22 +233,23 @@
             <div class="footer o_background_footer">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">
+                        <li t-if="company_branch_id.phone" class="list-inline-item">
                             <i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/>
-                            <span t-field="docs.branch_id.phone"/>
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">
+                        <li t-if="company_branch_id.email" class="list-inline-item">
                             <i class="fa fa-at" role="img" aria-label="Email" title="Email"/>
-                            <span t-field="docs.branch_id.email"/>
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">
+                        <li t-if="company_branch_id.website" class="list-inline-item">
                             <i class="fa fa-globe" role="img" aria-label="Website" title="Website"/>
-                            <span t-field="docs.branch_id.website"/>
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item">
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
                             <i class="fa fa-building-o" role="img" aria-label="Fiscal number"/>
-                            <t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
                     <div t-field="docs.company_id.report_footer"/>
@@ -273,30 +266,27 @@
     </template>
 
     <template id="external_layout_boxed_custom">
+        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="docs.branch_id.is_from_branch == True">
             <div class="header">
                 <div class="o_boxed_header">
                     <div class="row mb8">
                         <div class="col-6">
-                            <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" alt="Logo"/>
+                            <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" alt="Logo"/>
                         </div>
                         <div class="col-6 text-right mb4">
-                            <!--                     <h4 class="mt0" t-field="docs.company_id.report_header"/>
-                             -->
                             <div name="company_address" class="mb4">
-                                <div t-field="docs.branch_id.name" class="list-inline-item"/>
+                                <div t-field="company_branch_id.name" class="list-inline-item"/>
                                 <br></br>
-                                <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.street" class="list-inline-item"></div>
                                 <br/>
-                                <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                                <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                                 <br></br>
-                                <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                                <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                                <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                                 <br></br>
-                                <div t-field="docs.branch_id.country_id.name" class="list-inline-item"></div>
-                                <!--  <span class="company_address" t-field="docs.branch_id"
-                                     t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/> -->
+                                <div t-field="company_branch_id.country_id.name" class="list-inline-item"></div>
                             </div>
                         </div>
                     </div>
@@ -311,21 +301,21 @@
             <div class="footer o_boxed_footer">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">Tel:
-                            <span t-field="docs.branch_id.phone"/>
+                        <li t-if="company_branch_id.phone" class="list-inline-item">Tel:
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">Mail:
-                            <span t-field="docs.branch_id.email"/>
+                        <li t-if="company_branch_id.email" class="list-inline-item">Mail:
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">Web:
-                            <span t-field="docs.branch_id.website"/>
+                        <li t-if="company_branch_id.website" class="list-inline-item">Web:
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item"><t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
-                    <!--                 <div t-field="docs.company_id.report_footer"/>
-                     -->
                     <div t-if="report_type == 'pdf'">
                         Page:
                         <span class="page"/>
@@ -340,24 +330,22 @@
                 <div class="o_boxed_header">
                     <div class="row mb8">
                         <div class="col-6">
-                            <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" alt="Logo"/>
+                            <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" alt="Logo"/>
                         </div>
                         <div class="col-6 text-right mb4">
                             <h4 class="mt0" t-field="docs.company_id.report_header"/>
                             <div name="company_address" class="mb4">
-                                <div t-field="docs.branch_id.name" class="list-inline-item"/>
+                                <div t-field="company_branch_id.name" class="list-inline-item"/>
                                 <br></br>
-                                <div t-field="docs.branch_id.street" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.street" class="list-inline-item"></div>
                                 <br/>
-                                <div t-field="docs.branch_id.street2" class="list-inline-item w-100"></div>
+                                <div t-field="company_branch_id.street2" class="list-inline-item w-100"></div>
                                 <br></br>
-                                <div t-field="docs.branch_id.city" class="list-inline-item"></div>
-                                <div t-field="docs.branch_id.state_id.name" class="list-inline-item"></div>
-                                <div t-field="docs.branch_id.zip" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.city" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.state_id.name" class="list-inline-item"></div>
+                                <div t-field="company_branch_id.zip" class="list-inline-item"></div>
                                 <br></br>
-                                <div t-field="docs.branch_id.country_id.name" class="list-inline-item"></div>
-                                <!--  <span class="company_address" t-field="docs.branch_id"
-                                     t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/> -->
+                                <div t-field="company_branch_id.country_id.name" class="list-inline-item"></div>
                             </div>
                         </div>
                     </div>
@@ -372,17 +360,19 @@
             <div class="footer o_boxed_footer">
                 <div class="text-center">
                     <ul class="list-inline">
-                        <li t-if="docs.branch_id.phone" class="list-inline-item">Tel:
-                            <span t-field="docs.branch_id.phone"/>
+                        <li t-if="company_branch_id.phone" class="list-inline-item">Tel:
+                            <span t-field="company_branch_id.phone"/>
                         </li>
-                        <li t-if="docs.branch_id.email" class="list-inline-item">Mail:
-                            <span t-field="docs.branch_id.email"/>
+                        <li t-if="company_branch_id.email" class="list-inline-item">Mail:
+                            <span t-field="company_branch_id.email"/>
                         </li>
-                        <li t-if="docs.branch_id.website" class="list-inline-item">Web:
-                            <span t-field="docs.branch_id.website"/>
+                        <li t-if="company_branch_id.website" class="list-inline-item">Web:
+                            <span t-field="company_branch_id.website"/>
                         </li>
-                        <li t-if="docs.branch_id.vat" class="list-inline-item"><t t-esc="(docs.branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>:
-                            <span t-esc="docs.branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
+                        <li t-if="company_branch_id.vat" class="list-inline-item">
+                            <t t-esc="(company_branch_id.country_id.vat_label or 'Tax ID').replace(' ','\N{NO-BREAK SPACE}')"/>
+:
+                            <span t-esc="company_branch_id.vat.replace(' ','\N{NO-BREAK SPACE}')"/>
                         </li>
                     </ul>
                     <div t-field="docs.company_id.report_footer"/>
@@ -399,31 +389,34 @@
     </template>
 
     <template id="external_layout_clean_custom">
+        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="docs.branch_id.is_from_branch == True">
             <div class="header">
                 <div class="o_clean_header">
                     <div class="row">
                         <div class="col-6">
-                            <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" alt="Logo"/>
+                            <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" alt="Logo"/>
                         </div>
                         <div class="col-5 offset-1" name="company_address">
                             <ul class="list-unstyled">
                                 <strong>
-                                    <li t-if="docs.branch_id.name">
-                                        <span t-field="docs.branch_id.name"/>
+                                    <li t-if="company_branch_id.name">
+                                        <span t-field="company_branch_id.name"/>
                                     </li>
                                 </strong>
-                                <li t-if="docs.branch_id.vat"><t t-esc="docs.branch_id.country_id.vat_label or 'Tax ID'"/>:
-                                    <span t-field="docs.branch_id.vat"/>
+                                <li t-if="company_branch_id.vat">
+                                    <t t-esc="company_branch_id.country_id.vat_label or 'Tax ID'"/>
+:
+                                    <span t-field="company_branch_id.vat"/>
                                 </li>
-                                <li t-if="docs.branch_id.phone">Tel:
-                                    <span t-field="docs.branch_id.phone"/>
+                                <li t-if="company_branch_id.phone">Tel:
+                                    <span t-field="company_branch_id.phone"/>
                                 </li>
-                                <li t-if="docs.branch_id.email">
-                                    <span t-field="docs.branch_id.email"/>
+                                <li t-if="company_branch_id.email">
+                                    <span t-field="company_branch_id.email"/>
                                 </li>
-                                <li t-if="docs.branch_id.website">
-                                    <span t-field="docs.branch_id.website"/>
+                                <li t-if="company_branch_id.website">
+                                    <span t-field="company_branch_id.website"/>
                                 </li>
                             </ul>
                         </div>
@@ -438,38 +431,31 @@
 
             <div class="footer o_clean_footer">
                 <div class="row mt8">
-                    <div class="col-3">
-                        <!--                     <span t-field="docs.company_id.report_footer"/>
-                         -->                </div>
+                    <div class="col-3"></div>
                     <div class="col-4 text-right">
                         <ul class="list-inline">
-                            <li t-if="docs.branch_id.street" class="list-inline-item">
-                                <span t-field="docs.branch_id.street"/>
+                            <li t-if="company_branch_id.street" class="list-inline-item">
+                                <span t-field="company_branch_id.street"/>
                             </li>
                             <br/>
-                            <li t-if="docs.branch_id.street2" class="list-inline-item ">
-                                <span t-field="docs.branch_id.street2"/>
+                            <li t-if="company_branch_id.street2" class="list-inline-item ">
+                                <span t-field="company_branch_id.street2"/>
                             </li>
                             <br></br>
-                            <li t-if="docs.branch_id.city" class="list-inline-item">
-                                <span t-field="docs.branch_id.city"/>
+                            <li t-if="company_branch_id.city" class="list-inline-item">
+                                <span t-field="company_branch_id.city"/>
                             </li>
-                            <li t-if="docs.branch_id.state_id" class="list-inline-item">
-                                <span t-field="docs.branch_id.state_id.name"/>
+                            <li t-if="company_branch_id.state_id" class="list-inline-item">
+                                <span t-field="company_branch_id.state_id.name"/>
                             </li>
-                            <li t-if="docs.branch_id.zip" class="list-inline-item">
-                                <span t-field="docs.branch_id.zip"/>
+                            <li t-if="company_branch_id.zip" class="list-inline-item">
+                                <span t-field="company_branch_id.zip"/>
                             </li>
                             <br></br>
-                            <li t-if="docs.branch_id.country_id" class="list-inline-item">
-                                <span t-field="docs.branch_id.country_id.name"/>
+                            <li t-if="company_branch_id.country_id" class="list-inline-item">
+                                <span t-field="company_branch_id.country_id.name"/>
                             </li>
-
-
                         </ul>
-
-                        <!-- <span class="company_address" t-field="docs.name"
-                            t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/> -->
                     </div>
                     <div class="col-4">
                         <h4 class="mt0 mb0 text-uppercase"/>
@@ -491,26 +477,28 @@
                 <div class="o_clean_header">
                     <div class="row">
                         <div class="col-6">
-                            <img t-if="docs.branch_id.logo" t-att-src="image_data_uri(docs.branch_id.logo)" alt="Logo"/>
+                            <img t-if="company_branch_id.logo" t-att-src="image_data_uri(company_branch_id.logo)" alt="Logo"/>
                         </div>
                         <div class="col-5 offset-1" name="company_address">
                             <ul class="list-unstyled">
                                 <strong>
-                                    <li t-if="docs.branch_id.name">
-                                        <span t-field="docs.branch_id.name"/>
+                                    <li t-if="company_branch_id.name">
+                                        <span t-field="company_branch_id.name"/>
                                     </li>
                                 </strong>
-                                <li t-if="docs.branch_id.vat"><t t-esc="docs.branch_id.country_id.vat_label or 'Tax ID'"/>:
-                                    <span t-field="docs.branch_id.vat"/>
+                                <li t-if="company_branch_id.vat">
+                                    <t t-esc="company_branch_id.country_id.vat_label or 'Tax ID'"/>
+:
+                                    <span t-field="company_branch_id.vat"/>
                                 </li>
-                                <li t-if="docs.branch_id.phone">Tel:
-                                    <span t-field="docs.branch_id.phone"/>
+                                <li t-if="company_branch_id.phone">Tel:
+                                    <span t-field="company_branch_id.phone"/>
                                 </li>
-                                <li t-if="docs.branch_id.email">
-                                    <span t-field="docs.branch_id.email"/>
+                                <li t-if="company_branch_id.email">
+                                    <span t-field="company_branch_id.email"/>
                                 </li>
-                                <li t-if="docs.branch_id.website">
-                                    <span t-field="docs.branch_id.website"/>
+                                <li t-if="company_branch_id.website">
+                                    <span t-field="company_branch_id.website"/>
                                 </li>
                             </ul>
                         </div>
@@ -529,8 +517,7 @@
                         <span t-field="docs.company_id.report_footer"/>
                     </div>
                     <div class="col-4 text-right">
-                        <span class="company_address" t-field="docs.branch_id"
-                              t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+                        <span class="company_address" t-field="company_branch_id" t-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
                     </div>
                     <div class="col-4">
                         <h4 class="mt0 mb0 text-uppercase" t-field="docs.company_id.report_header"/>
@@ -552,22 +539,9 @@
     </template>
 
     <template id="external_layout_custom">
+        <t t-set="company_branch_id" t-value="docs.branch_id or docs.company_id "/>
         <t t-if="not o" t-set="o" t-value="doc"/>
-
-        <!-- <t t-if="not company">
-            Multicompany
-            <t t-if="company_id">
-                <t t-set="company" t-value="company_id"/>
-            </t>
-            <t t-elif="o and 'company_id' in o">
-                <t t-set="company" t-value="o.company_id.sudo()"/>
-            </t>
-            <t t-else="else">
-                <t t-set="company" t-value="res_company"/>
-            </t>
-        </t> -->
-
-        <t t-if="docs.branch_id.external_report_layout_id" t-call="{{docs.branch_id.external_report_layout_id.key}}">
+        <t t-if="company_branch_id.external_report_layout_id" t-call="{{company_branch_id.external_report_layout_id.key}}">
             <t t-raw="0"/>
         </t>
         <t t-else="else" t-call="boraq_company_branches.external_layout_standard_custom">
@@ -585,7 +559,6 @@
         <t t-else="else" t-call="boraq_company_branches.external_layout_standard_custom">
             <t t-raw="0"/>
         </t>
-
     </template>
 
     <template id="preview_externalreport_custom">
@@ -598,12 +571,7 @@
         </t>
     </template>
 
-    <report id="action_report_externalpreview_custom"
-            model="company.branches"
-            name="boraq_company_branches.preview_externalreport_custom"
-            file="boraq_company_branches.preview_externalreport_custom"
-            string="Preview External Report"
-            report_type="qweb-pdf"/>
+    <report id="action_report_externalpreview_custom" model="company.branches" name="boraq_company_branches.preview_externalreport_custom" file="boraq_company_branches.preview_externalreport_custom" string="Preview External Report" report_type="qweb-pdf"/>
 
 </odoo>
   
