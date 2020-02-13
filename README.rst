@@ -83,5 +83,3 @@ This module is maintained by the Boraq Group.
    :target: https://boraq-group.com
 
 This module is part of the `Boraq Group <https://boraq-group.com>`_ project on GitHub.
-
-You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
