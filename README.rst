@@ -7,12 +7,12 @@ Company Branches
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/odoo%20version-12.0-green
-    :alt: V 12.0
+.. |badge1| image:: https://img.shields.io/badge/odoo%20version-13.0-green
+    :alt: V 13.0
 .. |badge2| image:: https://img.shields.io/badge/licence-OPL--1-blue.png
     :alt: License: OPL
 .. |badge3| image:: https://raster.shields.io/badge/github-Boraq%20Group-lightgray.png?logo=github
-    :target: https://github.com/boraq-group/boraq_company_branches/tree/12.0
+    :target: https://github.com/boraq-group/boraq_company_branches/tree/13.0
     :alt: Boraq Group
 
 
@@ -21,7 +21,7 @@ Company Branches
 Define multiple Branches for each Company, Set a layout for each branche and print branche info if selected in the following reports:
     *   Quotations
     *   Sale Orders
-    *   R&F
+    *   RFQ
     *   Purchase Orders
     *   Invoices
     *   Bills
@@ -48,19 +48,19 @@ Branch information means : Logo, Adress fields, VAT, Contact fields, Layout and 
 
 Images
 ======
-.. image:: description/1.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/1.JPG
 
-.. image:: description/2.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/2.JPG
 
-.. image:: description/3.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/3.JPG
 
-.. image:: description/4.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/4.JPG
 
-.. image:: description/5.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/5.JPG
 
-.. image:: description/6.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/6.JPG
 
-.. image:: description/7.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/7.JPG
 
 Bug Tracker
 ===========
@@ -82,5 +82,3 @@ This module is maintained by the Boraq Group.
    :target: https://boraq-group.com
 
 This module is part of the `Boraq Group <https://boraq-group.com>`_ project on GitHub.
-
-You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
