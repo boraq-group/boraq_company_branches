@@ -21,7 +21,7 @@ Company Branches
 Define multiple Branches for each Company, Set a layout for each branche and print branche info if selected in the following reports:
     *   Quotations
     *   Sale Orders
-    *   R&F
+    *   RFQ
     *   Purchase Orders
     *   Invoices
     *   Bills
@@ -48,19 +48,20 @@ Branch information means : Logo, Adress fields, VAT, Contact fields, Layout and 
 
 Images
 ======
-.. image:: description/1.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/1.JPG
 
-.. image:: description/2.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/2.JPG
 
-.. image:: description/3.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/3.JPG
 
-.. image:: description/4.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/4.JPG
 
-.. image:: description/5.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/5.JPG
 
-.. image:: description/6.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/6.JPG
 
-.. image:: description/7.jpg
+.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/12.0/description/7.JPG
+
 
 Bug Tracker
 ===========
