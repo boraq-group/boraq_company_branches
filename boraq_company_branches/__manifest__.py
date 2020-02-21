@@ -13,9 +13,9 @@
     'author': "Boraq-Group",
     'website': "",
     'category': 'base',
-    'version': '12.0',
+    'version': '13.0',
     'depends': ['base','sale','account','purchase'],
-    "images" : ['static/description/Banner.jpg'],
+    "images" : ['static/description/banner.jpg'],
     'data': [
         'report/report_layout_custom_view.xml',
         'data/report_layout.xml',
