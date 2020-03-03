@@ -15,7 +15,7 @@
     'category': 'base',
     'version': '12.0',
     'depends': ['base','sale','account','purchase'],
-    "images" : ['static/description/banner.jpg'],
+    "images" : ['static/description/banner.png'],
     'data': [
         'report/report_layout_custom_view.xml',
         'data/report_layout.xml',
