@@ -1,0 +1,32 @@
+{% extends "web/base.html" %}
+{% load static i18n %}
+{% block title %}Odoo WooCommerce Connector | Odoo Apps{% endblock title %}
+{% block extracss %}{% endblock extracss %}
+{% block content %}
+<div id="wrapwrap" class="loempia_modules_page">
+	{% include "web/includes/header.html" %}
+	<main>
+		<div id="wrap" itemscope="" itemtype="http://schema.org/SoftwareApplication" class="js_apps">
+			{% include "web/includes/apps_page.html" %}
+			<div id="module-description">
+	            <div id="loempia_tabs">
+	                <ul role="tablist" class="nav nav-tabs justify-content-center" data-tabs="tabs">
+	                    <li class="nav-item"><a href="#desc" class="nav-link active" data-toggle="tab">Description</a></li>
+	                    <li class="nav-item"><a href="#license" class="nav-link" data-toggle="tab">License</a></li>
+	                </ul>
+	                <div id="loempia_tabs_content" class="tab-content">
+	                	{% include "web/includes/tab_pane_desc.html" %}
+	                	{% include "web/includes/tab_pane_license.html" %}
+	                </div>
+                </div>
+            </div>
+			<div class="container">
+				{% include "web/includes/loempia_comments.html" %}
+			</div>
+            <div id="report_banneer_state" class="o_report_banneer"></div>
+		</div>
+	</main>
+</div>
+{% include "web/includes/footer.html" %}
+{% endblock content %}
+{% block extrajs %}{% endblock extrajs %}
