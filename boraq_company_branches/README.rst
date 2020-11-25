@@ -7,8 +7,8 @@ Company Branches
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/odoo%20version-13.0-green
-    :alt: V 13.0
+.. |badge1| image:: https://img.shields.io/badge/odoo%20version-14.0-green
+    :alt: V 14.0
 .. |badge2| image:: https://img.shields.io/badge/licence-OPL--1-blue.png
     :alt: License: OPL
 .. |badge3| image:: https://raster.shields.io/badge/github-Boraq%20Group-lightgray.png?logo=github
@@ -44,23 +44,6 @@ You need to define one or more branches for each company in your Odoo,
 then at each report you will choose a branche that belongs to the company of that report.
 If no branche is choosen, main company informaion will be print.
 Branch information means : Logo, Adress fields, VAT, Contact fields, Layout and Currency.
-
-
-Images
-======
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/1.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/2.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/3.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/4.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/5.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/6.JPG
-
-.. image:: https://raw.githubusercontent.com/boraq-group/boraq_company_branches/13.0/description/7.JPG
 
 Bug Tracker
 ===========
