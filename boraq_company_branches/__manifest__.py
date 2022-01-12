@@ -13,7 +13,7 @@
     'author': "Boraq-Group",
     'website': "",
     'category': 'base',
-    'version': '14.0.1.0.0',
+    'version': '14.0.1.0.1',
     'depends': ['base','sale','account','purchase'],
     "images" : ['static/description/banner.png'],
     'data': [
