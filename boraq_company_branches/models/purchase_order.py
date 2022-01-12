@@ -11,7 +11,8 @@ class PurchaseOrder(models.Model):
         """ Override """
         invoice_vals = super(PurchaseOrder, self)._prepare_invoice()
         invoice_vals.update({
-            'branch_id': self.branch_id
+            'branch_id': self.branch_id.id
         })
+        print('=============================================== invoice_vals', invoice_vals)
         return invoice_vals
 
