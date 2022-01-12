@@ -13,6 +13,5 @@ class PurchaseOrder(models.Model):
         invoice_vals.update({
             'branch_id': self.branch_id.id
         })
-        print('=============================================== invoice_vals', invoice_vals)
         return invoice_vals
 
